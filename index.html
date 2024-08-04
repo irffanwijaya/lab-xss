@@ -26,6 +26,14 @@
         .lab-card:hover {
             transform: scale(1.02);
         }
+        .create-db-btn {
+            margin-top: 20px;
+            background-color: #28a745;
+            color: #fff;
+        }
+        .create-db-btn:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
@@ -58,31 +66,10 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-md-4">
-                <div class="card lab-card mb-4 shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Reflected XSS Lab 2</h5>
-                        <a href="/labxss/reflectedXSS2.php" target="_blank" class="btn btn-primary">Open Lab</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card lab-card mb-4 shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Stored XSS Lab 2</h5>
-                        <a href="/labxss/storedXSS2.php" target="_blank" class="btn btn-primary">Open Lab</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card lab-card mb-4 shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">DOM XSS Lab 2</h5>
-                        <a href="/labxss/domXSS2.php" target="_blank" class="btn btn-primary">Open Lab</a>
-                    </div>
-                </div>
-            </div> -->
         </div>
+        <form action="/labxss/CDatabase.php" method="post">
+            <button type="submit" class="btn create-db-btn">Create Database</button>
+        </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
