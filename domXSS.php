@@ -63,10 +63,10 @@
     <h1>DOM XSS Vulnerability Lab</h1>
     <p>Please choose a language:</p>
     <form name="XSS" method="GET">
-        <select name="default">
+        <select name="Language">
             <script>
-                if (document.location.href.indexOf("default=") >= 0) {
-                    var lang = document.location.href.substring(document.location.href.indexOf("default=") + 8);
+                if (document.location.href.indexOf("Language=") >= 0) {
+                    var lang = document.location.href.substring(document.location.href.indexOf("Language=") + 9);
                     document.write("<option value='" + lang + "'>" + decodeURI(lang) + "</option>");
                     document.write("<option value='' disabled>----</option>");
                 }
