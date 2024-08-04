@@ -1,99 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM XSS Lab</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f9;
-            color: #333;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            height: 100vh;
         }
-
-        h1 {
-            color: #5a5a5a;
-        }
-
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+        .container {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin-bottom: 20px;
         }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
+        h1 {
+            color: #333;
         }
-
+        p {
+            color: #666;
+        }
         select {
-            width: 100%;
+            width: 220px;
             padding: 10px;
             margin-bottom: 10px;
+            border-radius: 5px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
         }
-
-        button {
-            background-color: #5a67d8;
-            color: #fff;
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
             border: none;
-            padding: 10px 15px;
             border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
-
-        button:hover {
-            background-color: #4c51bf;
+        input[type="submit"]:hover {
+            background-color: #0056b3;
         }
-
-        .result {
+        .note {
             margin-top: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
+            color: #999;
+            font-size: 14px;
         }
     </style>
 </head>
-
 <body>
-    <h1>DOM XSS Lab</h1>
-    <form id="searchForm">
-        <label for="option">Pilih Bahasa:</label>
-        <select id="option" name="option">
-            <option value="Indonesia">Indonesia</option>
-            <option value="Inggris">Inggris</option>
-            <option value="Jerman">Jerman</option>
+
+<div class="container">
+    <h1>DOM XSS Vulnerability Lab</h1>
+    <p>Please choose a language:</p>
+    <form name="XSS" method="GET">
+        <select name="default">
+            <script>
+                if (document.location.href.indexOf("default=") >= 0) {
+                    var lang = document.location.href.substring(document.location.href.indexOf("default=") + 8);
+                    document.write("<option value='" + lang + "'>" + decodeURI(lang) + "</option>");
+                    document.write("<option value='' disabled>----</option>");
+                }
+
+                document.write("<option value='English'>English</option>");
+                document.write("<option value='French'>French</option>");
+                document.write("<option value='Spanish'>Spanish</option>");
+                document.write("<option value='German'>German</option>");
+            </script>
         </select>
-        <button type="submit">Submit</button>
+        <input type="submit" value="Select" />
     </form>
+</div>
 
-    <div id="result" class="result"></div>
-
-    <script>
-        document.getElementById('searchForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            var selectedOption = document.getElementById('option').value;
-            document.getElementById('result').innerHTML = 'You selected: ' + selectedOption;
-            //Aman
-            // document.getElementById('result').textContent = 'You selected: ' + selectedOption;
-        });
-    </script>
 </body>
-
 </html>
