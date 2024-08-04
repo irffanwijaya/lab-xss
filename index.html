@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Labs Index</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .lab-card {
+            transition: transform 0.2s ease;
+        }
+        .lab-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>XSS Labs Index</h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card lab-card mb-4 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Reflected XSS Lab</h5>
+                        <a href="/labxss/reflectedXSS.php" target="_blank" class="btn btn-primary">Open Lab</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card lab-card mb-4 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Stored XSS Lab</h5>
+                        <a href="/labxss/storedXSS.php" target="_blank" class="btn btn-primary">Open Lab</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card lab-card mb-4 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">DOM XSS Lab</h5>
+                        <a href="/labxss/domXSS.php" target="_blank" class="btn btn-primary">Open Lab</a>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-4">
+                <div class="card lab-card mb-4 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Reflected XSS Lab 2</h5>
+                        <a href="/labxss/reflectedXSS2.php" target="_blank" class="btn btn-primary">Open Lab</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card lab-card mb-4 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Stored XSS Lab 2</h5>
+                        <a href="/labxss/storedXSS2.php" target="_blank" class="btn btn-primary">Open Lab</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card lab-card mb-4 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">DOM XSS Lab 2</h5>
+                        <a href="/labxss/domXSS2.php" target="_blank" class="btn btn-primary">Open Lab</a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
